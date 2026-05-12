@@ -1,0 +1,56 @@
+Program Prueba_TPFInal
+var
+mat1 = matrix[2 , 2];
+m1= real;
+n1= real;
+cv1=real;
+cv2=real;
+Cota_inf=real;
+Cota_sup=real;
+
+cuerpo
+{
+
+cv1:=1;
+cv2:=1;
+
+m1:=2;
+n1:=2;
+
+write("Debera ingresar los valores de la primer matriz");
+     while cv1 <= m1 {
+                 while cv2 <= n1 {
+                        write("Celda " , "[" , cv1, ",", cv2, "]");
+                        read("", mat1[cv1, cv2]);
+                        cv2:=cv2+1;
+                        };
+                 cv2:=1;
+                      cv1:=cv1+1;
+                   };
+     cv1:=1;
+     cv2:=1;
+
+read("Ingrese la cota inferior del rango",Cota_inf);
+read("Ingrese la cota superior del rango",Cota_sup);
+
+write("El limite es: [", Cota_inf, ",", Cota_sup, "]");
+
+write("Los números resultantes son:");
+
+while cv1 <= m1 {
+
+               while cv2 <= n1 {
+		if mat1[cv1,cv2] > Cota_inf then {
+		if mat1[cv1,cv2] < Cota_sup then{
+                        write(mat1[cv1, cv2]);
+			};
+			};
+                        cv2:=cv2+1;
+                        };
+               cv2:=1;
+               cv1:=cv1+1;
+               };
+
+write("vacio");
+
+}

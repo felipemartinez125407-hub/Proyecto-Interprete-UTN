@@ -1,0 +1,58 @@
+Program Simetrizador
+
+var
+  matA = matrix[50, 50];
+  matT = matrix[50, 50];
+  matSum = matrix[50, 50];
+  matRes = matrix[50, 50];
+  factor = real;
+  cv1 = real;
+  cv2 = real;
+  n = real;
+
+cuerpo
+{
+  write("--- Inicio del Proceso de Simetrizacion ---");
+  
+  write("Ingrese el tamaño de la matriz cuadrada (N): ");
+  read("", n);
+
+  cv1 := 1;
+  cv2 := 1;
+
+  write("Debera ingresar los valores de la matriz original"); 
+
+  while cv1 <= n { 
+    while cv2 <= n { 
+      write("Celda ", "[", cv1, ",", cv2, "]"); 
+      read("", matA[cv1, cv2]); 
+      cv2 := cv2 + 1; 
+    };
+    cv2 := 1;
+    cv1 := cv1 + 1;
+  };
+
+  matT := transpose(matA); 
+  matSum := add(matA, matT); 
+  factor := 0.5;
+  matRes := multesc(matSum, factor); 
+
+  write("--- Matriz Original Cargada ---");
+  cv1 := 1;
+  cv2 := 1; 
+  
+  write("Matriz Simetrizada Final:");
+  cv1 := 1;
+  cv2 := 1;
+
+  while cv1 <= n { 
+    while cv2 <= n { 
+      write("Celda[ ", cv1, ",", cv2, "] = ", matRes[cv1, cv2]); 
+      cv2 := cv2 + 1; 
+    };
+    cv2 := 1;
+    cv1 := cv1 + 1;
+  };
+
+  write("--- Proceso Finalizado con Exito ---");
+}

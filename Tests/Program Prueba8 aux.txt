@@ -1,0 +1,69 @@
+Program prueba_universal
+
+var
+    mat = matrix[100,100]; 
+    normalizada = matrix[100,100];
+    minVal = real;
+    maxVal = real;
+    n = nat; 
+    m = nat; 
+    i = nat;
+    j = nat;
+
+cuerpo
+{
+    write("Ingrese el numero de filas (n):");
+    read("", n);
+    write("Ingrese el numero de columnas (m):");
+    read("", m);
+
+    i := 1;
+    while i <= n {
+        j := 1;
+        while j <= m {
+            write("Celda [", i, ".00,", j, ".00]");
+            read("", mat[i,j]);
+            j := j + 1;
+        };
+        i := i + 1;
+    };
+
+    j := 1;
+    while j <= m {
+        minVal := mat[1,j];
+        maxVal := mat[1,j];
+
+        i := 1;
+        while i <= n {
+            if mat[i,j] < minVal then {
+                minVal := mat[i,j];
+            };
+            if mat[i,j] > maxVal then {
+                maxVal := mat[i,j];
+            };
+            i := i + 1;
+        };
+
+        i := 1;
+        while i <= n {
+            if (maxVal - minVal) <> 0 then {
+                normalizada[i,j] := ( mat[i,j] - minVal ) / ( maxVal - minVal );
+            } else then {
+                normalizada[i,j] := 0.0;
+            };
+            i := i + 1;
+        };
+        j := j + 1;
+    };
+
+    i := 1;
+    while i <= n {
+        j := 1;
+        while j <= m {
+            write("Celda [", i, ".00,", j, ".00]");
+            write(normalizada[i,j]);
+            j := j + 1;
+        };
+        i := i + 1;
+    };
+}

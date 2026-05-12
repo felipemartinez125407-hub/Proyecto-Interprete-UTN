@@ -1,0 +1,58 @@
+Program Prueba7
+var
+mat1 = matrix[50 , 50];
+mat2 = matrix[50 , 50];
+mat3 = matrix[50 , 50];
+m1= real;
+n1= real;
+m2= real;
+n2= real;
+cv1=real;
+cv2=real;
+
+cuerpo
+{
+ read("Ingrese la cantidad de filas de la primer matriz: ", m1);
+ read("Ingrese la cantidad de columnas de la primer matriz: ", n1);
+ read("Ingrese la cantidad de filas de la segunda matriz: ", m2);
+ read("Ingrese la cantidad de columnas de la segunda matriz: ", n2);
+if n1 == m2 then {
+     cv1:=1;
+     cv2:=1;
+     write("Debera ingresar los valores de la primer matriz");
+     while cv1 <= m1 {
+                 while cv2 <= n1 {
+                        write("Celda " , "[" , cv1, ",", cv2, "]");
+                        read("", mat1[cv1, cv2]);
+                        cv2:=cv2+1;
+                        };
+                 cv2:=1;
+                      cv1:=cv1+1;
+                   };
+     cv1:=1;
+     cv2:=1;
+     write("Debera ingresar los valores de la segunda matriz");
+     while cv1 <= m2 {
+                 while cv2 <= n2 {
+                        write("Celda ", "[", cv1, ",", cv2, "]");
+                        read(" ", mat2[cv1 , cv2]);
+                        cv2:=cv2+1;
+                        };
+                 cv2:=1;
+                 cv1:=cv1+1;
+                };
+    mat3:=multiplication(mat1, mat2);
+    cv1:=1;
+    cv2:=1;
+    while cv1 <= m1 {
+
+               while cv2 <= n2 {
+                        write("Celda[ ", cv1, ",", cv2, "] = ", mat3[cv1, cv2]);
+                        cv2:=cv2+1;
+                        };
+               cv2:=1;
+               cv1:=cv1+1;
+               };
+  } else then { write("Las matrices a multiplicar deben ser de MxN y NxP para poder ser multiplicadas"); };
+ 
+}
